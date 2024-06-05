@@ -1,7 +1,7 @@
-﻿/*
+/*
  MEMBERS
  Kelly Tiedt (602730) - Creates a method to determine if the applicants qualify for the game token credit
-Jaden Van der lely (600690) - Implements the main menu using an Enum for the navigation
+Jaden Van der lely (600690) - Implements the main menu using an Enum for the navigation
 Jonathan Joubert (578085) - Creates a method to capture the applicants details
 Mamello Lelaka (577497) - Creates a method to display the token qualification stats
 Marco Brazao de Sousa (601587) - Does the validation and formatting for the above method
@@ -9,173 +9,163 @@ Marco Brazao de Sousa (601587) - Does the validation and formatting for the abov
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Retroslice_M1
 {
-    public class details //Jonathan Joubert 578085
-    {//initilising applicant details
-        public string name { get; set; }
-        public string age { get; set; }
-        public string rank { get; set; }
-        public string date { get; set; }
-        public string pizza { get; set; }
-        public string score { get; set; }
-        public bool employment { get; set; }
-        public string slushpreference { get; set; }
-            public string slushconsumed { get; set; }
+    public class Details // Jonathan Joubert 578085
+    {
+        // Initialising applicant details
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Rank { get; set; }
+        public DateTime Date { get; set; }
+        public int Pizza { get; set; }
+        public int Score { get; set; }
+        public bool Employment { get; set; }
+        public string SlushPreference { get; set; }
+        public int SlushConsumed { get; set; }
 
-        //Jonathan Joubert 578085
-        public details(string name, string age, string rank, string date, string pizza, string score, bool employment, string slushpreference, string slushconsumed)
-        {//assigning applicant details
-            this.name = name;
-            this.age = age;
-            this.rank = rank;
-            this.date = date;
-            this.pizza = pizza;
-            this.score = score;
-            this.employment = employment;
-            this.slushpreference = slushpreference;
-            this.slushconsumed = slushconsumed;
+        // Constructor to assign applicant details
+        public Details(string name, int age, int rank, DateTime date, int pizza, int score, bool employment, string slushPreference, int slushConsumed)
+        {
+            Name = name;
+            Age = age;
+            Rank = rank;
+            Date = date;
+            Pizza = pizza;
+            Score = score;
+            Employment = employment;
+            SlushPreference = slushPreference;
+            SlushConsumed = slushConsumed;
         }
     }
 
-    public class retro //Jonathan Joubert 578085
-    {//defining applicant details
-        public static List<details> Getdetails()
+    public class Retro // Jonathan Joubert 578085
+    {
+        // Method to capture the applicant's details and store them in a collection
+        public static List<Details> GetDetails()
         {
-            var applicants = new List<details>();
-            bool istrue = true;
-            while (istrue)
-            { //this method is for capturing the applicant's details and storing them in their respective variables.
+            var applicants = new List<Details>();
+            bool isTrue = true;
+
+            while (isTrue)
+            {
                 Console.WriteLine("Type in the applicant's details");
-				
-				Console.Write("name: ");
-				string name = Console.ReadLine();
-				
-		if (name != string)
-        { 
-            Console.Write("Your name must be in alphabetical charaters.");
-			Console.Write("name: ");
-		    string name = Console.ReadLine();
-        }
-        else if (name == string)
-        {
-            Console.Write("age: ");
-            string age = Console.ReadLine();                    //continue
-        }
 
-		if (age != int)
-		{
-		    Console.Write("You must enter a valid integer age.");
-			Console.Write("age: ");
-            string age = Console.ReadLine();
-		}	
-		else if (age == int)
-	    {
-		    Console.Write("rank: ");
-		    string rank = Console.ReadLine();
-		}
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+                while (string.IsNullOrEmpty(name) || !IsAlphabetic(name))
+                {
+                    Console.WriteLine("Your name must be in alphabetical characters.");
+                    Console.Write("Name: ");
+                    name = Console.ReadLine();
+                }
 
+                Console.Write("Age: ");
+                string ageInput = Console.ReadLine();
+                int age;
+                while (!int.TryParse(ageInput, out age))
+                {
+                    Console.WriteLine("You must enter a valid integer age.");
+                    Console.Write("Age: ");
+                    ageInput = Console.ReadLine();
+                }
 
-		if (rank != int)
-		{
-		    Console.Write("You must enter a valid rank.");
-		    Console.Write("rank: ");
-		    string rank = Console.ReadLine();			
-		}	
-	    else if (date == int)
-		{
-            Console.Write("starting date (YYYY/MM/DD): ");
-            string date = Console.ReadLine();
-		}
+                Console.Write("Rank: ");
+                string rankInput = Console.ReadLine();
+                int rank;
+                while (!int.TryParse(rankInput, out rank))
+                {
+                    Console.WriteLine("You must enter a valid rank.");
+                    Console.Write("Rank: ");
+                    rankInput = Console.ReadLine();
+                }
 
+                Console.Write("Starting date (YYYY/MM/DD): ");
+                string dateInput = Console.ReadLine();
+                DateTime date;
+                while (!DateTime.TryParse(dateInput, out date))
+                {
+                    Console.WriteLine("You must enter a valid date.");
+                    Console.Write("Starting date (YYYY/MM/DD): ");
+                    dateInput = Console.ReadLine();
+                }
 
-		if (date != DateTime)
-		{
-		    Console.Write("You must enter a valid integer date.");
-            Console.Write("starting date (YYYY/MM/DD): ");
-            string date = Console.ReadLine();			
-		}	
-		else if (date == DateTime)
-		{
-            Console.Write("amount of pizzas eaten: ");
-            string pizza = Console.ReadLine();
-		}
+                Console.Write("Amount of pizzas eaten: ");
+                string pizzaInput = Console.ReadLine();
+                int pizza;
+                while (!int.TryParse(pizzaInput, out pizza))
+                {
+                    Console.WriteLine("You must enter a valid integer number.");
+                    Console.Write("Amount of pizzas eaten: ");
+                    pizzaInput = Console.ReadLine();
+                }
 
-		if (pizza != int)
-		{
-		    Console.Write("You must enter a valid integer number.");
-            Console.Write("amount of pizzas eaten: ");
-            string pizza = Console.ReadLine();			
-		}	
-		else if (pizza == int)
-		{
-		    Console.Write("bowling high score: ");
-		    string score = Console.ReadLine();
-		}
+                Console.Write("Bowling high score: ");
+                string scoreInput = Console.ReadLine();
+                int score;
+                while (!int.TryParse(scoreInput, out score))
+                {
+                    Console.WriteLine("You must enter a valid integer number.");
+                    Console.Write("Bowling high score: ");
+                    scoreInput = Console.ReadLine();
+                }
 
-		if (score != int)
-		{
-		    Console.Write("You must enter a valid integer number.");
-		    Console.Write("bowling high score: ");
-		    string score = Console.ReadLine();			
-		}	
-		else if (score == int)
-		{
-		    Console.Write("are they employed? (yes or no): ");
-		    bool employment = Console.ReadLine().ToLower() == "yes";
-		}				
-			
-        if (employment != bool)
-		{
-		    Console.Write("You must enter yes or no.");
-		    Console.Write("are they employed? (yes or no): ");
-		    bool employment = Console.ReadLine().ToLower() == "yes";			
-		}  	
-		else if (employment == bool)
-		{
-		    Console.Write("favourite slush puppy flavour: ");
-		    string slushpreference = Console.ReadLine();
-	    }			
+                Console.Write("Are they employed? (yes or no): ");
+                string employmentInput = Console.ReadLine().ToLower();
+                while (employmentInput != "yes" && employmentInput != "no")
+                {
+                    Console.WriteLine("You must enter yes or no.");
+                    Console.Write("Are they employed? (yes or no): ");
+                    employmentInput = Console.ReadLine().ToLower();
+                }
+                bool employment = employmentInput == "yes";
 
-        if (slushpreference != string)
-		{
-		    Console.Write("You must enter a flavour/colour.");
-		    Console.Write("favourite slush puppy flavour: ");
-		    string slushpreference = Console.ReadLine();			
-		}	
-		else if (slushpreference == string)
-		{
-		    Console.Write("amount of slush puppies drunk: ");
-		    string slushconsumed = Console.ReadLine();
-		}
-				
-		if (slushconsumed != int)
-		{
-		    Console.Write("You must enter an amount.");
-            string slushconsumed = Console.ReadLine();
-		}
-        else if (slushconsumed == int)
-		{
-			string slushconsumed = Console.ReadLine();
-		}	
+                Console.Write("Favourite slush puppy flavour: ");
+                string slushPreference = Console.ReadLine();
+                while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference))
+                {
+                    Console.WriteLine("You must enter a flavour/colour.");
+                    Console.Write("Favourite slush puppy flavour: ");
+                    slushPreference = Console.ReadLine();
+                }
 
+                Console.Write("Amount of slush puppies drunk: ");
+                string slushConsumedInput = Console.ReadLine();
+                int slushConsumed;
+                while (!int.TryParse(slushConsumedInput, out slushConsumed))
+                {
+                    Console.WriteLine("You must enter an amount.");
+                    Console.Write("Amount of slush puppies drunk: ");
+                    slushConsumedInput = Console.ReadLine();
+                }
 
-                var applicant = new details(name, age, rank, date, pizza, score, employment, slushpreference, slushconsumed);
+                var applicant = new Details(name, age, rank, date, pizza, score, employment, slushPreference, slushConsumed);
                 applicants.Add(applicant);
-                Console.WriteLine("");
-                Console.Write("new application? (yes or no): "); 
-    istrue = Console.ReadLine().ToLower() == "yes";
+
+                Console.WriteLine();
+                Console.Write("New application? (yes or no): ");
+                isTrue = Console.ReadLine().ToLower() == "yes";
             }
+
             return applicants;
         }
+
+        private static bool IsAlphabetic(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
-    //Qualified customers method
-    public class CreditCheck      // Kelly Tiedt 602730
+    // Qualified customers method
+    public class CreditCheck // Kelly Tiedt 602730
     {
         public static List<Details> GetQualifiedApplicants(List<Details> applicants)
         {
@@ -186,21 +176,21 @@ namespace Retroslice_M1
                 bool isQualified = true;
 
                 // Check employment status
-                if (!applicant.employment && int.Parse(applicant.age) >= 18) 
+                if (!applicant.Employment && applicant.Age >= 18)
                 {
                     isQualified = false;
                 }
 
                 // Check loyalty duration (2 years)
-                DateTime startingDate = DateTime.Parse(applicant.date);
+                DateTime startingDate = applicant.Date;
                 if ((DateTime.Now - startingDate).TotalDays / 365 < 2)
                 {
                     isQualified = false;
                 }
 
                 // Check high score rank and bowling high score
-                int highScoreRank = int.Parse(applicant.rank);
-                int bowlingHighScore = int.Parse(applicant.score);
+                int highScoreRank = applicant.Rank;
+                int bowlingHighScore = applicant.Score;
                 if (highScoreRank <= 2000 && bowlingHighScore <= 1500)
                 {
                     if ((highScoreRank + bowlingHighScore) / 2 <= 1200)
@@ -209,24 +199,23 @@ namespace Retroslice_M1
                     }
                 }
 
-
                 // Check pizza consumption (at least 3 per month)
                 DateTime now = DateTime.Now;
                 int monthsAsCustomer = ((now.Year - startingDate.Year) * 12) + now.Month - startingDate.Month;
-                if (monthsAsCustomer == 0) monthsAsCustomer = 1;                       // To avoid division by zero
-                if (int.Parse(applicant.pizza) / monthsAsCustomer < 3)
+                if (monthsAsCustomer == 0) monthsAsCustomer = 1; // To avoid division by zero
+                if (applicant.Pizza / monthsAsCustomer < 3)
                 {
                     isQualified = false;
                 }
 
                 // Check slush-puppy consumption (at least 4 per month)
-                if (int.Parse(applicant.slushconsumed) / monthsAsCustomer < 4)
+                if (applicant.SlushConsumed / monthsAsCustomer < 4)
                 {
                     isQualified = false;
                 }
 
                 // Check slush-puppy preference
-                if (applicant.slushpreference == "Gooey Gulp Galore")
+                if (applicant.SlushPreference == "Gooey Gulp Galore")
                 {
                     isQualified = false;
                 }
@@ -238,18 +227,22 @@ namespace Retroslice_M1
             }
 
             return qualifiedApplicants;
-	}
-}
-private static void ShowStats(List<Details> applicants, List<Details> qualifiedApplicants)
-{
-    Console.WriteLine("Total Applicants: " + applicants.Count);
-    Console.WriteLine("Qualified Applicants: " + qualifiedApplicants.Count);
-    Console.WriteLine("Denied Applicants: " + (applicants.Count - qualifiedApplicants.Count));
-}
+        }
+    }
+
+    public class StatsDisplay // Mamello Lelaka 577497
+    {
+        public static void ShowStats(List<Details> applicants, List<Details> qualifiedApplicants)
+        {
+            Console.WriteLine("Total Applicants: " + applicants.Count);
+            Console.WriteLine("Qualified Applicants: " + qualifiedApplicants.Count);
+            Console.WriteLine("Denied Applicants: " + (applicants.Count - qualifiedApplicants.Count));
+        }
+    }
 
     internal class Program
     {
-        // Enum difined 
+        // Enum defined
         enum MenuOption
         {
             GetDetails = 1,
@@ -260,7 +253,7 @@ private static void ShowStats(List<Details> applicants, List<Details> qualifiedA
 
         static void Main(string[] args)
         {
-            //Created a list for saving aplicants and also a list of customers who qualified
+            // Created a list for saving applicants and also a list of customers who qualified
             List<Details> applicants = new List<Details>();
             List<Details> qualifiedApplicants = new List<Details>();
             bool exit = false;
@@ -276,40 +269,32 @@ private static void ShowStats(List<Details> applicants, List<Details> qualifiedA
                 // Using parse to convert string to integer for user input
                 MenuOption option = (MenuOption)int.Parse(Console.ReadLine());
 
-                //Using a swith case method to determine user inputs using the enum
+                // Using a switch case method to determine user inputs using the enum
                 switch (option)
                 {
-                    //Option 1 in Enum
+                    // Option 1 in Enum
                     case MenuOption.GetDetails:
                         applicants = Retro.GetDetails();
                         break;
 
-                    //Option 2 of Enum
+                    // Option 2 of Enum
                     case MenuOption.CheckCreditQualification:
-                        qualifiedApplicants = [CreditCheck.GetQualifiedApplicants](applicants);
+                        qualifiedApplicants = CreditCheck.GetQualifiedApplicants(applicants);
                         Console.WriteLine("Credit qualification check completed.");
                         break;
 
-                    //Option 3 in Enum
-                    //Display stat method needed ------------------------Mamello Lelaka your class and method name in []
+                    // Option 3 of Enum
                     case MenuOption.ShowStats:
-                       StatsDisplay.ShowStats(applicants, qualifiedApplicants);
+                        StatsDisplay.ShowStats(applicants, qualifiedApplicants);
                         break;
 
-                     // Option 4
+                    // Option 4 of Enum
                     case MenuOption.Exit:
                         exit = true;
                         break;
-
-                    //If not one of the options are chosen it will return a error meassage
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
                 }
-
                 Console.WriteLine();
             }
         }
     }
 }
-
