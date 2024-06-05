@@ -226,7 +226,7 @@ namespace Retroslice_M1
                 }
 
                 // Check slush-puppy preference
-                if (applicant.slushpreference == "Gooe Gulp Galore")
+                if (applicant.slushpreference == "Gooey Gulp Galore")
                 {
                     isQualified = false;
                 }
@@ -252,7 +252,7 @@ namespace Retroslice_M1
 
         static void Main(string[] args)
         {
-            //Created a list for saving aplicants and also test who qualified
+            //Created a list for saving aplicants and also a list of customers who qualified
             List<Details> applicants = new List<Details>();
             List<Details> qualifiedApplicants = new List<Details>();
             bool exit = false;
