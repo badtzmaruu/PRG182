@@ -51,23 +51,30 @@ namespace Retroslice_M1
             while (istrue)
             { //this method is for capturing the applicant's details and storing them in their respective variables.
                 Console.WriteLine("Type in the applicant's details");
-
+				
+				Console.Write("name: ");
+				string name = Console.ReadLine();
 				
 		if (name != string)
-                { 
-                    Console.Write("Your name must be in alphabetical charaters.");
-                }
-                else if (name == string)
-                {
-                    Console.Write("age: ");
-                    string age = Console.ReadLine();                    //continue
-                }
+        { 
+            Console.Write("Your name must be in alphabetical charaters.");
+			Console.Write("name: ");
+		    string name = Console.ReadLine();
+        }
+        else if (name == string)
+        {
+            Console.Write("age: ");
+            string age = Console.ReadLine();                    //continue
+        }
 
 		if (age != int)
 		{
 		    Console.Write("You must enter a valid integer age.");
+			Console.Write("age: ");
+            string age = Console.ReadLine();
 		}	
 		else if (age == int)
+	    {
 		    Console.Write("rank: ");
 		    string rank = Console.ReadLine();
 		}
@@ -76,27 +83,33 @@ namespace Retroslice_M1
 		if (rank != int)
 		{
 		    Console.Write("You must enter a valid rank.");
+		    Console.Write("rank: ");
+		    string rank = Console.ReadLine();			
 		}	
-	        else if (date == int)
+	    else if (date == int)
 		{
-                    Console.Write("starting date (YYYY/MM/DD): ");
-                    string date = Console.ReadLine();
+            Console.Write("starting date (YYYY/MM/DD): ");
+            string date = Console.ReadLine();
 		}
 
 
 		if (date != DateTime)
 		{
 		    Console.Write("You must enter a valid integer date.");
+            Console.Write("starting date (YYYY/MM/DD): ");
+            string date = Console.ReadLine();			
 		}	
 		else if (date == DateTime)
 		{
-                    Console.Write("amount of pizzas eaten: ");
-                    string pizza = Console.ReadLine();
+            Console.Write("amount of pizzas eaten: ");
+            string pizza = Console.ReadLine();
 		}
 
 		if (pizza != int)
 		{
 		    Console.Write("You must enter a valid integer number.");
+            Console.Write("amount of pizzas eaten: ");
+            string pizza = Console.ReadLine();			
 		}	
 		else if (pizza == int)
 		{
@@ -107,6 +120,8 @@ namespace Retroslice_M1
 		if (score != int)
 		{
 		    Console.Write("You must enter a valid integer number.");
+		    Console.Write("bowling high score: ");
+		    string score = Console.ReadLine();			
 		}	
 		else if (score == int)
 		{
@@ -114,21 +129,25 @@ namespace Retroslice_M1
 		    bool employment = Console.ReadLine().ToLower() == "yes";
 		}				
 			
-                if (employment != bool)
+        if (employment != bool)
 		{
 		    Console.Write("You must enter yes or no.");
+		    Console.Write("are they employed? (yes or no): ");
+		    bool employment = Console.ReadLine().ToLower() == "yes";			
 		}  	
 		else if (employment == bool)
 		{
 		    Console.Write("favourite slush puppy flavour: ");
 		    string slushpreference = Console.ReadLine();
-	        }			
+	    }			
 
-                if (slushpreference != "string")
+        if (slushpreference != string)
 		{
 		    Console.Write("You must enter a flavour/colour.");
+		    Console.Write("favourite slush puppy flavour: ");
+		    string slushpreference = Console.ReadLine();			
 		}	
-		else if (slushpreference == "string")
+		else if (slushpreference == string)
 		{
 		    Console.Write("amount of slush puppies drunk: ");
 		    string slushconsumed = Console.ReadLine();
@@ -137,7 +156,13 @@ namespace Retroslice_M1
 		if (slushconsumed != int)
 		{
 		    Console.Write("You must enter an amount.");
+            string slushconsumed = Console.ReadLine();
 		}
+        else if (slushconsumed == int)
+		{
+			string slushconsumed = Console.ReadLine();
+		}	
+
 
                 var applicant = new details(name, age, rank, date, pizza, score, employment, slushpreference, slushconsumed);
                 applicants.Add(applicant);
