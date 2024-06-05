@@ -123,7 +123,7 @@ namespace Retroslice_M1
 
                 Console.Write("Favourite slush puppy flavour: ");
                 string slushPreference = Console.ReadLine();
-                while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference))
+                while (string.IsNullOrEmpty(slushPreference)) 
                 {
                     Console.WriteLine("You must enter a flavour/colour.");
                     Console.Write("Favourite slush puppy flavour: ");
@@ -155,7 +155,7 @@ namespace Retroslice_M1
         {
             foreach (char c in input)
             {
-                if (!char.IsLetter(c))
+                if (!char.IsLetter(c) && !char.IsWhiteSpace(c))
                 {
                     return false;
                 }
@@ -179,6 +179,7 @@ namespace Retroslice_M1
                 if (!applicant.Employment && applicant.Age >= 18)
                 {
                     isQualified = false;
+                    Console.Write(isQualified);
                 }
 
                 // Check loyalty duration (2 years)
@@ -186,12 +187,13 @@ namespace Retroslice_M1
                 if ((DateTime.Now - startingDate).TotalDays / 365 < 2)
                 {
                     isQualified = false;
+                    Console.Write(isQualified);
                 }
 
                 // Check high score rank and bowling high score
                 int highScoreRank = applicant.Rank;
                 int bowlingHighScore = applicant.Score;
-                if (highScoreRank <= 2000 && bowlingHighScore <= 1500)
+                if (highScoreRank <= 2000 || bowlingHighScore <= 1500)
                 {
                     if ((highScoreRank + bowlingHighScore) / 2 <= 1200)
                     {
