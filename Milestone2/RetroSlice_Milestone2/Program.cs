@@ -1,10 +1,10 @@
-﻿/*
- MEMBERS
- Kelly Tiedt (602730) - Creates a method to determine if the applicants qualify for the game token credit
-Jaden Van der lely (600690) - Implements the main menu using an Enum for the navigation
-Jonathan Joubert (578085) - Creates a method to capture the applicants details
-Mamello Lelaka (577497) - Creates a method to display the token qualification stats
-Marco Brazao de Sousa (601587) - Does the validation and formatting for the above method
+﻿/*MILESTONE 2
+
+ Kelly Tiedt (602730) - 
+Jaden Van der lely (600690) - 
+Jonathan Joubert (578085) - Q1, Q3
+Mamello Lelaka (577497) - 
+Marco Brazao de Sousa (601587) - 
  */
 using System;
 using System.Collections.Generic;
