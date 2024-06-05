@@ -51,25 +51,98 @@ namespace Retroslice_M1
             while (istrue)
             { //this method is for capturing the applicant's details and storing them in their respective variables.
                 Console.WriteLine("Type in the applicant's details");
-                
-                Console.Write("name: ");
-                string name = Console.ReadLine();
-                Console.Write("age: ");
-                string age = Console.ReadLine();
-                Console.Write("rank: ");
-                string rank = Console.ReadLine();
-                Console.Write("starting date (YYYY/MM/DD): ");
-                string date = Console.ReadLine();
-               Console.Write("amount of pizzas eaten: ");
-                string pizza = Console.ReadLine();
-                Console.Write("bowling high score: ");
-                string score = Console.ReadLine();
-                Console.Write("are they employed? (yes or no): ");
-                bool employment = Console.ReadLine().ToLower() == "yes";
-                Console.Write("favourite slush puppy flavour: ");
-                string slushpreference = Console.ReadLine();
-                Console.Write("amount of slush puppies drunk: ");
-                string slushconsumed = Console.ReadLine();
+
+				
+			            	if (name != string)
+                { 
+                    Console.Write("Your name must be in alphabetical charaters.");
+                }
+                else if (name == string)
+                {
+                    Console.Write("age: ");
+                    string age = Console.ReadLine();                    //continue
+                }
+				
+				
+				            if (age != int)
+				            {
+					               Console.Write("You must enter a valid integer age.");
+				            }	
+			           	 else if (age == int)
+				            {
+					               Console.Write("rank: ");
+					               string rank = Console.ReadLine();
+				            }
+
+
+				            if (rank != int)
+				            {
+				            	   Console.Write("You must enter a valid rank.");
+				            }	
+				            else if (date == int)
+				            {
+                    Console.Write("starting date (YYYY/MM/DD): ");
+                    string date = Console.ReadLine();
+				            }
+
+
+				             if (date != DateTime)
+				             {
+					                Console.Write("You must enter a valid integer date.");
+				             }	
+				             else if (date == DateTime)
+				             {
+                    Console.Write("amount of pizzas eaten: ");
+                    string pizza = Console.ReadLine();
+				             }
+
+				             if (pizza != int)
+				             {
+					                Console.Write("You must enter a valid integer number.");
+			              }	
+				             else if (pizza == int)
+				             {
+					                Console.Write("bowling high score: ");
+					                string score = Console.ReadLine();
+				             }
+
+				             if (score != int)
+				             {
+					                Console.Write("You must enter a valid integer number.");
+				             }	
+				             else if (score == int)
+				             {
+						               Console.Write("are they employed? (yes or no): ");
+					           	    bool employment = Console.ReadLine().ToLower() == "yes";
+				             }				
+			
+
+				             if (employment != bool)
+				             {
+					                Console.Write("You must enter yes or no.");
+			              } 	
+				             else if (employment == bool)
+				             {
+				                 Console.Write("favourite slush puppy flavour: ");
+				                 string slushpreference = Console.ReadLine();
+	               	}			
+				
+				
+				             if (slushpreference != "string")
+			              {
+				                 Console.Write("You must enter a flavour/colour.");
+			              }	
+				             else if (slushpreference == "string")
+				             {
+				            	    Console.Write("amount of slush puppies drunk: ");
+					                string slushconsumed = Console.ReadLine();
+				             }
+				
+			          	   if (slushconsumed != int)
+			         	    {
+					            Console.Write("You must enter an amount.");
+				             }
+
                 var applicant = new details(name, age, rank, date, pizza, score, employment, slushpreference, slushconsumed);
                 applicants.Add(applicant);
                 Console.WriteLine("");
