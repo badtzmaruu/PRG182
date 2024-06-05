@@ -238,6 +238,14 @@ namespace Retroslice_M1
             }
 
             return qualifiedApplicants;
+	}
+}
+private static void ShowStats(List<Details> applicants, List<Details> qualifiedApplicants)
+{
+    Console.WriteLine("Total Applicants: " + applicants.Count);
+    Console.WriteLine("Qualified Applicants: " + qualifiedApplicants.Count);
+    Console.WriteLine("Denied Applicants: " + (applicants.Count - qualifiedApplicants.Count));
+}
 
     internal class Program
     {
@@ -285,7 +293,7 @@ namespace Retroslice_M1
                     //Option 3 in Enum
                     //Display stat method needed ------------------------Mamello Lelaka your class and method name in []
                     case MenuOption.ShowStats:
-                     // [](applicants, qualifiedApplicants);
+                       StatsDisplay.ShowStats(applicants, qualifiedApplicants);
                         break;
 
                      // Option 4
