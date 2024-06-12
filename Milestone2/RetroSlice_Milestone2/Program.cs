@@ -101,7 +101,9 @@ namespace Retroslice_M1
                 Console.Write("Starting date (YYYY/MM/DD): ");
                 string dateInput = Console.ReadLine();
                 DateTime date;
-                while (!DateTime.TryParse(dateInput, out date))
+                DateTime currentDate = DateTime.Now;
+                DateTime birthDate = currentDate.AddYears(-age);
+                while (!DateTime.TryParse(dateInput, out date) || birthDate > date)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a valid date.");
@@ -109,21 +111,6 @@ namespace Retroslice_M1
                     Console.ForegroundColor = currentColor;
                     dateInput = Console.ReadLine();
                 }
-                DateTime currentDate = DateTime.Now;
-                DateTime birthDate = currentDate.AddYears(-age);
-
-                int leewayMonth = 1;
-                if (IsWithinLeeway(date, birthDate, leewayMonth))
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Dates do not match.");
-                    Console.ForegroundColor = currentColor;
-                }
-                /*else
-                {
-                    Console.WriteLine("Dates match");
-                }*/
-
 
 
                 Console.Write("Amount of pizzas eaten: ");
@@ -197,17 +184,6 @@ namespace Retroslice_M1
             return applicants;
 
         }
-        private static bool IsWithinLeeway(DateTime date, DateTime birthDate, int leeway)
-        {
-            int leewayMonth = 1;
-            DateTime startRange = date.AddMonths(-leewayMonth);
-            DateTime endRange = birthDate.AddMonths(leewayMonth);
-
-            return date >= startRange && date <= endRange;
-        }
-
-
-
         private static bool IsAlphabetic(string input)
         {
             foreach (char c in input)
