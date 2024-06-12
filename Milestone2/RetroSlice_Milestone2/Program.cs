@@ -93,7 +93,8 @@ namespace Retroslice_M1
                 {
                     Console.WriteLine("You must enter a valid date.");
                     Console.Write("Starting date (YYYY/MM/DD): ");  // This part should have validation for if the age is smaller than the difference in years it shouldn't accept
-                    dateInput = Console.ReadLine();                 //for example if you're 12 years old you couldn't have started in 1980/01/01
+                    dateInput = Console.ReadLine();                    //for example if you're 12 years old you couldn't have started in 1980/01/01
+                   
                 }
 
                 Console.Write("Amount of pizzas eaten: ");
@@ -306,7 +307,7 @@ namespace Retroslice_M1
                 longterm,
                 Exit
             }
-
+            
             static void Main(string[] args)
             {
                 // Created a list for saving applicants and also a list of customers who qualified
@@ -339,6 +340,7 @@ namespace Retroslice_M1
                     
 
                     MenuOption option = (MenuOption)input;
+                    int milliseconds = 1000;
 
                     // Using a switch case method to determine user inputs using the enum
                     switch (option)
@@ -346,20 +348,29 @@ namespace Retroslice_M1
                         // Option 1 in Enum
                         case MenuOption.GetDetails:
                             applicants = Retro.GetDetails();
-                            Console.WriteLine("wait a moment while we process data");
-                            int milliseconds = 1000;
+                            Console.WriteLine("");
+                            Console.Write("Wait a moment while we process data ");
                             Thread.Sleep(milliseconds);
                             Console.Write(".");
                             Thread.Sleep(milliseconds);
                             Console.Write(".");
                             Thread.Sleep(milliseconds);
-                            Console.Write(".");
-
+                            Console.WriteLine(".");
+                            Thread.Sleep(milliseconds);
                             break;
 
                         // Option 2 of Enum
                         case MenuOption.CheckCreditQualification:
                             qualifiedApplicants = CreditCheck.GetQualifiedApplicants(applicants);
+                            Console.WriteLine("");
+                            Console.Write("Loading ");
+                            Thread.Sleep(milliseconds);
+                            Console.Write(".");
+                            Thread.Sleep(milliseconds);
+                            Console.Write(".");
+                            Thread.Sleep(milliseconds);
+                            Console.WriteLine(".");
+                            Thread.Sleep(milliseconds);
                             Console.WriteLine("");
                             Console.WriteLine("Credit qualification check completed.");
                             break;
