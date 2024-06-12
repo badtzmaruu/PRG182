@@ -1,15 +1,16 @@
-﻿/*MILESTONE 2
+/*MILESTONE 2
 
- Kelly Tiedt (602730) - 
+Kelly Tiedt (602730) - 
 Jaden Van der lely (600690) - 
 Jonathan Joubert (578085) - Q1, Q3
 Mamello Lelaka (577497) - 
 Marco Brazao de Sousa (601587) - 
- */
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -127,7 +128,14 @@ namespace Retroslice_M1
 
                 Console.Write("Favourite slush puppy flavour: "); // This part needs to be fixed if you run the program it allows you to enter digits in this field (check here and check method)
                 string slushPreference = Console.ReadLine();
-                while (string.IsNullOrEmpty(slushPreference) || IsAlphabetic(name)==false)
+               
+                /*if (slushPreference != string)
+                {
+                    Console.Write("Favourite slush puppy flavour: "); 
+                    string slushPreference = Console.ReadLine();
+                }*/
+
+                while (string.IsNullOrEmpty(slushPreference) || IsAlphabetic(name) == false)
                 {
                     Console.WriteLine("You must enter a flavour/colour.");
                     Console.Write("Favourite slush puppy flavour: ");
@@ -153,6 +161,7 @@ namespace Retroslice_M1
             }
 
             return applicants;
+   
         }
 
         private static bool IsAlphabetic(string input)
@@ -241,7 +250,8 @@ namespace Retroslice_M1
 
             return qualifiedApplicants;
         }
-        public static bool longtermloyal(Details applicant){
+        public static bool longtermloyal(Details applicant)
+        {
             DateTime datestart = applicant.Date;
             if ((DateTime.Now - datestart).TotalDays / 365 >= 10)
             {
@@ -326,6 +336,8 @@ namespace Retroslice_M1
                         continue;
                     }
 
+                    
+
                     MenuOption option = (MenuOption)input;
 
                     // Using a switch case method to determine user inputs using the enum
@@ -334,6 +346,15 @@ namespace Retroslice_M1
                         // Option 1 in Enum
                         case MenuOption.GetDetails:
                             applicants = Retro.GetDetails();
+                            Console.WriteLine("wait a moment while we process data");
+                            int milliseconds = 1000;
+                            Thread.Sleep(milliseconds);
+                            Console.Write(".");
+                            Thread.Sleep(milliseconds);
+                            Console.Write(".");
+                            Thread.Sleep(milliseconds);
+                            Console.Write(".");
+
                             break;
 
                         // Option 2 of Enum
@@ -356,14 +377,14 @@ namespace Retroslice_M1
                             Console.WriteLine("Average pizzas eaten everyday since join: " + Math.Round(averagePizzas, 2));
                             break;
 
-                            //option 5 of the enum
-                            case MenuOption.longterm:
-                                foreach(var applicant in applicants)
+                        //option 5 of the enum
+                        case MenuOption.longterm:
+                            foreach (var applicant in applicants)
                             {
                                 bool criteria = CreditCheck.longtermloyal(applicant);
                                 string qualified;
                                 string meet;
-                                if(criteria == false)
+                                if (criteria == false)
                                 {
                                     qualified = "Unfortunately, ";
                                     meet = "does not meet ";
