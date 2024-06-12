@@ -4,7 +4,7 @@ Kelly Tiedt (602730) -
 Jaden Van der lely (600690) - Q4
 Jonathan Joubert (578085) - Q1, Q3
 Mamello Lelaka (577497) - 
-Marco Brazao de Sousa (601587) - 
+Marco Brazao de Sousa (601587) - Q5
 */
 using System;
 using System.Collections.Generic;
@@ -457,7 +457,7 @@ namespace Retroslice_M1
                                 }
                                 Console.WriteLine("");
                                 Console.WriteLine($"{qualified}{applicant.Name} {meet}the criteria for Long-Term Loyalty.");
-                                Console.ReadLine();
+                             
                             }
                             break;
 
