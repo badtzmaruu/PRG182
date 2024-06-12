@@ -51,6 +51,8 @@ namespace Retroslice_M1
         {
             var applicants = new List<Details>();
             bool isTrue = true;
+            var currentColor = Console.ForegroundColor;
+
 
             while (isTrue)
             {
@@ -61,7 +63,10 @@ namespace Retroslice_M1
                 string name = Console.ReadLine();
                 while (string.IsNullOrEmpty(name) || !IsAlphabetic(name))
                 {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Your name must be in alphabetical characters.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Name: ");
                     name = Console.ReadLine();
                 }
@@ -71,7 +76,9 @@ namespace Retroslice_M1
                 int age;
                 while (!int.TryParse(ageInput, out age) || int.Parse(ageInput) > 99)
                 {
-                    Console.WriteLine("You must enter a valid integer age.");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You must enter a valid integer age.");                    
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Age: ");
                     ageInput = Console.ReadLine();
                 }
@@ -81,7 +88,9 @@ namespace Retroslice_M1
                 int rank;
                 while (!int.TryParse(rankInput, out rank))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a valid rank.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Rank: ");
                     rankInput = Console.ReadLine();
                 }
@@ -91,8 +100,10 @@ namespace Retroslice_M1
                 DateTime date;
                 while (!DateTime.TryParse(dateInput, out date))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a valid date.");
                     Console.Write("Starting date (YYYY/MM/DD): ");  // This part should have validation for if the age is smaller than the difference in years it shouldn't accept
+                    Console.ForegroundColor = currentColor;
                     dateInput = Console.ReadLine();                    //for example if you're 12 years old you couldn't have started in 1980/01/01
                    
                 }
@@ -102,7 +113,9 @@ namespace Retroslice_M1
                 int pizza;
                 while (!int.TryParse(pizzaInput, out pizza))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a valid integer number.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Amount of pizzas eaten: ");
                     pizzaInput = Console.ReadLine();
                 }
@@ -112,7 +125,9 @@ namespace Retroslice_M1
                 int score;
                 while (!int.TryParse(scoreInput, out score))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a valid integer number.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Bowling high score: ");
                     scoreInput = Console.ReadLine();
                 }
@@ -121,7 +136,9 @@ namespace Retroslice_M1
                 string employmentInput = Console.ReadLine().ToLower();
                 while (employmentInput != "yes" && employmentInput != "no")
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter yes or no.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Are they employed? (yes or no): ");
                     employmentInput = Console.ReadLine().ToLower();
                 }
@@ -138,7 +155,9 @@ namespace Retroslice_M1
 
                 while (string.IsNullOrEmpty(slushPreference) || IsAlphabetic(name) == false)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a flavour/colour.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Favourite slush puppy flavour: ");
                     slushPreference = Console.ReadLine();
                 }
@@ -148,7 +167,9 @@ namespace Retroslice_M1
                 int slushConsumed;
                 while (!int.TryParse(slushConsumedInput, out slushConsumed))
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter an amount.");
+                    Console.ForegroundColor = currentColor;
                     Console.Write("Amount of slush puppies drunk: ");
                     slushConsumedInput = Console.ReadLine();
                 }
@@ -269,6 +290,17 @@ namespace Retroslice_M1
             Console.WriteLine("Total Applicants: " + applicants.Count);
             Console.WriteLine("Qualified Applicants: " + qualifiedApplicants.Count);
             Console.WriteLine("Denied Applicants: " + (applicants.Count - qualifiedApplicants.Count));
+
+
+            var currentColor = Console.ForegroundColor;
+
+            if (qualifiedApplicants.Count > 0)
+            {       
+                Console.WriteLine("");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Congradulations you have qualified");
+                Console.ForegroundColor = currentColor;
+            }
         }
     }
 
