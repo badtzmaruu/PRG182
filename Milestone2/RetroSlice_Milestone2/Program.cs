@@ -1,9 +1,9 @@
 /*MILESTONE 2
 
-Kelly Tiedt (602730) - 
-Jaden Van der lely (600690) - Q4
+Kelly Tiedt (602730) - Q2
+Jaden Van der lely (600690) - Q4, Q2
 Jonathan Joubert (578085) - Q1, Q3
-Mamello Lelaka (577497) - 
+Mamello Lelaka (577497) - Q2
 Marco Brazao de Sousa (601587) - Q5
 */
 using System;
