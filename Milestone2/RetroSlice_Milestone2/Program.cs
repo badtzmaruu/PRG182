@@ -46,6 +46,8 @@ namespace Retroslice_M1
 
     public class Retro // Jonathan Joubert 578085
     {
+
+
         // Method to capture the applicant's details and store them in a collection
         public static List<Details> GetDetails()
         {
@@ -95,6 +97,7 @@ namespace Retroslice_M1
                     rankInput = Console.ReadLine();
                 }
 
+
                 Console.Write("Starting date (YYYY/MM/DD): ");
                 string dateInput = Console.ReadLine();
                 DateTime date;
@@ -102,11 +105,26 @@ namespace Retroslice_M1
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a valid date.");
-                    Console.Write("Starting date (YYYY/MM/DD): ");  // This part should have validation for if the age is smaller than the difference in years it shouldn't accept
+                    Console.Write("Starting date (YYYY/MM/DD): ");
                     Console.ForegroundColor = currentColor;
-                    dateInput = Console.ReadLine();                    //for example if you're 12 years old you couldn't have started in 1980/01/01
+                    dateInput = Console.ReadLine();
+                }    
+                    DateTime currentDate = DateTime.Now;
+                    DateTime birthDate = currentDate.AddYears(-age);
+                    
+                    int leewayMonth = 1;
+                    if (!IsWithinLeeway(date, birthDate, leewayMonth))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Dates do not match.");
+                        Console.ForegroundColor = currentColor;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Dates match");
+                    }                    
+                
 
-                }
 
                 Console.Write("Amount of pizzas eaten: ");
                 string pizzaInput = Console.ReadLine();
@@ -146,14 +164,15 @@ namespace Retroslice_M1
 
                 Console.Write("Favourite slush puppy flavour: "); // This part needs to be fixed if you run the program it allows you to enter digits in this field (check here and check method)
                 string slushPreference = Console.ReadLine();
-                while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference)) 
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("You must enter a flavour/colour.");
-                    Console.ForegroundColor = currentColor;
-                    Console.Write("Favourite slush puppy flavour: ");
-                    slushPreference = Console.ReadLine();
-                }
+                while (string.IsNullOrEmpty(slushPreference) || IsAlphabetic(name) == false)
+                    while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("You must enter a flavour/colour.");
+                        Console.ForegroundColor = currentColor;
+                        Console.Write("Favourite slush puppy flavour: ");
+                        slushPreference = Console.ReadLine();
+                    }
 
                 Console.Write("Amount of slush puppies drunk: ");
                 string slushConsumedInput = Console.ReadLine();
@@ -178,8 +197,18 @@ namespace Retroslice_M1
             return applicants;
 
         }
+        private static bool IsWithinLeeway(DateTime date, DateTime birthDate, int leeway)
+        {
+            int leewayMonth = 1;
+            DateTime startRange = date.AddMonths(-leewayMonth);
+            DateTime endRange = birthDate.AddMonths(leewayMonth);
 
-        private static bool IsAlphabetic(string input)
+            return date >= startRange && date <= endRange;
+        }
+
+
+
+    private static bool IsAlphabetic(string input)
         {
             foreach (char c in input)
             {
