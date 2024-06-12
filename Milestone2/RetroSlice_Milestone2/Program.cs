@@ -1,7 +1,7 @@
 /*MILESTONE 2
 
 Kelly Tiedt (602730) - 
-Jaden Van der lely (600690) - 
+Jaden Van der lely (600690) - Q4
 Jonathan Joubert (578085) - Q1, Q3
 Mamello Lelaka (577497) - 
 Marco Brazao de Sousa (601587) - 
