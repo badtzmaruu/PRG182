@@ -146,7 +146,7 @@ namespace Retroslice_M1
 
                 Console.Write("Favourite slush puppy flavour: "); // This part needs to be fixed if you run the program it allows you to enter digits in this field (check here and check method)
                 string slushPreference = Console.ReadLine();
-                while (string.IsNullOrEmpty(slushPreference) || IsAlphabetic(name) == false)
+                while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference)) 
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You must enter a flavour/colour.");
