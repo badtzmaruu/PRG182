@@ -47,7 +47,6 @@ namespace Retroslice_M1
     public class Retro // Jonathan Joubert 578085
     {
 
-
         // Method to capture the applicant's details and store them in a collection
         public static List<Details> GetDetails()
         {
@@ -151,14 +150,14 @@ namespace Retroslice_M1
 
                 Console.Write("Favourite slush puppy flavour: "); // This part needs to be fixed if you run the program it allows you to enter digits in this field (check here and check method)
                 string slushPreference = Console.ReadLine();
-                    while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference))
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("You must enter a flavour/colour.");
-                        Console.ForegroundColor = currentColor;
-                        Console.Write("Favourite slush puppy flavour: ");
-                        slushPreference = Console.ReadLine();
-                    }
+                while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("You must enter a flavour/colour.");
+                    Console.ForegroundColor = currentColor;
+                    Console.Write("Favourite slush puppy flavour: ");
+                    slushPreference = Console.ReadLine();
+                }
 
                 Console.Write("Amount of slush puppies drunk: ");
                 string slushConsumedInput = Console.ReadLine();
@@ -194,6 +193,35 @@ namespace Retroslice_M1
             }
             return true;
         }
+        // Method to find the youngest and oldest applicants
+        public static void GetAgeRange(List<Details> applicants)
+        {
+            if (applicants == null || applicants.Count == 0)
+            {
+                Console.WriteLine("No applicants to evaluate.");
+                return;
+            }
+
+            int youngest = int.MaxValue;
+            int oldest = int.MinValue;
+
+            foreach (var applicant in applicants)
+            {
+                if (applicant.Age < youngest)
+                {
+                    youngest = applicant.Age;
+                }
+                if (applicant.Age > oldest)
+                {
+                    oldest = applicant.Age;
+                }
+            }
+
+            Console.WriteLine($"Youngest Applicant: {youngest}");
+            Console.WriteLine($"Oldest Applicant: {oldest}");
+        }
+
+
     }
 
     public static class LoadingAnimationUtility
@@ -361,6 +389,7 @@ namespace Retroslice_M1
                 ShowPizzaAvg,
                 longterm,
                 ClearScreen,
+                GetAgeRange,
                 Exit
             }
 
@@ -381,7 +410,8 @@ namespace Retroslice_M1
                     Console.WriteLine("4. Show the average pizzas consumed");
                     Console.WriteLine("5. Long term loyalty");
                     Console.WriteLine("6. Clear current page");
-                    Console.WriteLine("7. Exit");
+                    Console.WriteLine("7. Sort Ages");
+                    Console.WriteLine("8. Exit");
                     Console.Write("Choose an option: ");
                     // Using parse to convert string to integer for user input
 
@@ -465,8 +495,12 @@ namespace Retroslice_M1
                             Console.Clear();
                             break;
 
+                        // Option 7 of Enum - New Option for Age Range
+                        case MenuOption.GetAgeRange:
+                            Retro.GetAgeRange(applicants);
+                            break;
 
-                        // Option 7 of Enum
+                        // Option 8 of Enum
                         case MenuOption.Exit:
                             Console.WriteLine("");
                             Console.WriteLine("Are you sure you want to exit. (yes/no)");
