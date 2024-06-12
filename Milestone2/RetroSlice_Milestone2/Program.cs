@@ -414,7 +414,6 @@ namespace Retroslice_M1
                         case MenuOption.Exit:
                             Console.WriteLine("");
                             Console.WriteLine("Are you sure you want to exit. (yes/no)");
-                            Console.ReadLine();
                             string ResponseExitCheck = Console.ReadLine();
 
                             if (ResponseExitCheck == "yes")
