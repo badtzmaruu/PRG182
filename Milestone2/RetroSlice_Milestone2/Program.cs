@@ -412,7 +412,18 @@ namespace Retroslice_M1
 
                         // Option 6 of Enum
                         case MenuOption.Exit:
-                            exit = true;
+                            Console.WriteLine("");
+                            Console.WriteLine("Are you sure you want to exit. (yes/no)");
+                            Console.ReadLine();
+                            string ResponseExitCheck = Console.ReadLine();
+
+                            if (ResponseExitCheck == "yes")
+                            {
+                                exit = true;
+                                break;
+                            }
+
+
                             break;
                     }
                     Console.WriteLine();
