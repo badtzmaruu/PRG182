@@ -1,9 +1,9 @@
 /*MILESTONE 2
 
-Kelly Tiedt (602730) - Q2
-Jaden Van der lely (600690) - Q4, Q2
+Kelly Tiedt (602730) - 
+Jaden Van der lely (600690) - Q4
 Jonathan Joubert (578085) - Q1, Q3
-Mamello Lelaka (577497) - Q2
+Mamello Lelaka (577497) - 
 Marco Brazao de Sousa (601587) - Q5
 */
 using System;
@@ -151,7 +151,6 @@ namespace Retroslice_M1
 
                 Console.Write("Favourite slush puppy flavour: "); // This part needs to be fixed if you run the program it allows you to enter digits in this field (check here and check method)
                 string slushPreference = Console.ReadLine();
-                while (string.IsNullOrEmpty(slushPreference) || IsAlphabetic(name) == false)
                     while (string.IsNullOrEmpty(slushPreference) || !IsAlphabetic(slushPreference))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
@@ -457,7 +456,7 @@ namespace Retroslice_M1
                                 }
                                 Console.WriteLine("");
                                 Console.WriteLine($"{qualified}{applicant.Name} {meet}the criteria for Long-Term Loyalty.");
-                             
+
                             }
                             break;
 
