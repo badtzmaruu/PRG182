@@ -198,14 +198,30 @@ namespace Retroslice_M1
             return true;
         }
     }
-
+ public static class LoadingAnimationUtility
+ {
+     public static void ShowLoadingAnimation(int duration)
+     {
+         Console.Write("Loading");
+         for (int i = 0; i < duration / 250; i++) // Convert milliseconds to quarter-seconds for faster animation
+         {
+             Console.Write(".");
+             Thread.Sleep(250);
+         }
+         Console.WriteLine();
+     }
+ }
     // Qualified customers method
     public class CreditCheck // Kelly Tiedt 602730
     {
         public static List<Details> GetQualifiedApplicants(List<Details> applicants)
         {
             var qualifiedApplicants = new List<Details>();
-
+            
+ //Loading animation
+  Console.WriteLine("Getting qualified applicants");
+  LoadingAnimationUtility.ShowLoadingAnimation(3000);
+            
             foreach (var applicant in applicants)
             {
                 bool isQualified = true;
@@ -287,6 +303,10 @@ namespace Retroslice_M1
     {
         public static void ShowStats(List<Details> applicants, List<Details> qualifiedApplicants)
         {
+             //Loading animation
+ Console.WriteLine("Displaying stats");
+ LoadingAnimationUtility.ShowLoadingAnimation(2000);
+            
             Console.WriteLine("Total Applicants: " + applicants.Count);
             Console.WriteLine("Qualified Applicants: " + qualifiedApplicants.Count);
             Console.WriteLine("Denied Applicants: " + (applicants.Count - qualifiedApplicants.Count));
@@ -308,6 +328,10 @@ namespace Retroslice_M1
     {
         public static double CalculateAveragePizzasEaten(List<Details> applicants)
         {
+             //Loading animation
+ Console.WriteLine("Calculating average pizzas eaten...");
+ LoadingAnimationUtility.ShowLoadingAnimation(4000);
+
             if (applicants == null || applicants.Count == 0)
             {
                 return 0;
@@ -383,30 +407,12 @@ namespace Retroslice_M1
                         // Option 1 in Enum
                         case MenuOption.GetDetails:
                             applicants = Retro.GetDetails();
-                            Console.WriteLine("");
-                            Console.Write("Wait a moment while we process data ");
-                            Thread.Sleep(milliseconds);
-                            Console.Write(".");
-                            Thread.Sleep(milliseconds);
-                            Console.Write(".");
-                            Thread.Sleep(milliseconds);
-                            Console.WriteLine(".");
-                            Thread.Sleep(milliseconds);
                             break;
 
                         // Option 2 of Enum
                         case MenuOption.CheckCreditQualification:
                             qualifiedApplicants = CreditCheck.GetQualifiedApplicants(applicants);
-                            Console.WriteLine("");
-                            Console.Write("Loading ");
-                            Thread.Sleep(milliseconds);
-                            Console.Write(".");
-                            Thread.Sleep(milliseconds);
-                            Console.Write(".");
-                            Thread.Sleep(milliseconds);
-                            Console.WriteLine(".");
-                            Thread.Sleep(milliseconds);
-                            Console.WriteLine("");
+                            
                             Console.WriteLine("Credit qualification check completed.");
                             break;
 
