@@ -305,6 +305,7 @@ namespace Retroslice_M1
                 ShowStats,
                 ShowPizzaAvg,
                 longterm,
+                ClearScreen,
                 Exit
             }
             
@@ -317,13 +318,15 @@ namespace Retroslice_M1
                 // The while loop will continue until the Exit option is chosen in the Menu
                 while (!exit)
                 {
+                    
                     Console.WriteLine("Retroslice Application Capture System");
                     Console.WriteLine("1. Capture Details");
                     Console.WriteLine("2. Check Game Token Credit Qualification");
                     Console.WriteLine("3. Show Current Arcade & Bowling Stats");
                     Console.WriteLine("4. Show the average pizzas consumed");
                     Console.WriteLine("5. Long term loyalty");
-                    Console.WriteLine("6. Exit");
+                    Console.WriteLine("6. Clear current page");
+                    Console.WriteLine("7. Exit");
                     Console.Write("Choose an option: ");
                     // Using parse to convert string to integer for user input
 
@@ -410,7 +413,13 @@ namespace Retroslice_M1
                             }
                             break;
 
-                        // Option 6 of Enum
+                        //option 6 of the enum
+                        case MenuOption.ClearScreen:
+                            Console.Clear();
+                        break;
+                            
+
+                        // Option 7 of Enum
                         case MenuOption.Exit:
                             Console.WriteLine("");
                             Console.WriteLine("Are you sure you want to exit. (yes/no)");
