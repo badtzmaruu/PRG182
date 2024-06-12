@@ -457,6 +457,7 @@ namespace Retroslice_M1
                                 }
                                 Console.WriteLine("");
                                 Console.WriteLine($"{qualified}{applicant.Name} {meet}the criteria for Long-Term Loyalty.");
+                                Console.ReadLine();
                             }
                             break;
 
