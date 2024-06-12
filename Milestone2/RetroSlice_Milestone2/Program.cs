@@ -108,22 +108,22 @@ namespace Retroslice_M1
                     Console.Write("Starting date (YYYY/MM/DD): ");
                     Console.ForegroundColor = currentColor;
                     dateInput = Console.ReadLine();
-                }    
-                    DateTime currentDate = DateTime.Now;
-                    DateTime birthDate = currentDate.AddYears(-age);
-                    
-                    int leewayMonth = 1;
-                    if (!IsWithinLeeway(date, birthDate, leewayMonth))
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Dates do not match.");
-                        Console.ForegroundColor = currentColor;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Dates match");
-                    }                    
-                
+                }
+                DateTime currentDate = DateTime.Now;
+                DateTime birthDate = currentDate.AddYears(-age);
+
+                int leewayMonth = 1;
+                if (IsWithinLeeway(date, birthDate, leewayMonth))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Dates do not match.");
+                    Console.ForegroundColor = currentColor;
+                }
+                /*else
+                {
+                    Console.WriteLine("Dates match");
+                }*/
+
 
 
                 Console.Write("Amount of pizzas eaten: ");
@@ -208,7 +208,7 @@ namespace Retroslice_M1
 
 
 
-    private static bool IsAlphabetic(string input)
+        private static bool IsAlphabetic(string input)
         {
             foreach (char c in input)
             {
