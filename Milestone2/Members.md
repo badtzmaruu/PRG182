@@ -1,5 +1,0 @@
-Kelly Tiedt (602730) 
-Jaden Van der lely (600690) 
-Jonathan Joubert (578085) 
-Mamello Lelaka (577497) 
-Marco Brazao de Sousa (601587) 

@@ -1,0 +1,7 @@
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\bin\Debug\RetroSlice_Milestone2.exe.config
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\bin\Debug\RetroSlice_Milestone2.exe
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\bin\Debug\RetroSlice_Milestone2.pdb
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\obj\Debug\RetroSlice_Milestone2.csproj.AssemblyReference.cache
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\obj\Debug\RetroSlice_Milestone2.csproj.CoreCompileInputs.cache
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\obj\Debug\RetroSlice_Milestone2.exe
+C:\Users\joube\Desktop\Github\PRG182\Milestone2\RetroSlice_Milestone2\obj\Debug\RetroSlice_Milestone2.pdb
